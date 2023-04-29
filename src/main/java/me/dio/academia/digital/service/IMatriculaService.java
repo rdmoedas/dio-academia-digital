@@ -5,7 +5,7 @@ import me.dio.academia.digital.entity.form.MatriculaForm;
 
 import java.util.List;
 
-public class IMatriculaService {
+public interface IMatriculaService {
     /**
      * Cria uma Matrícula e salva no banco de dados.
      * @param form - formulário referente aos dados para criação da Matrícula no banco de dados.
