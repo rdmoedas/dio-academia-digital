@@ -1,12 +1,14 @@
 package me.dio.academia.digital.service;
 
 import me.dio.academia.digital.entity.Aluno;
+import me.dio.academia.digital.entity.AvaliacaoFisica;
 import me.dio.academia.digital.entity.form.AlunoForm;
 import me.dio.academia.digital.entity.form.AlunoUpdateForm;
 
+import java.time.LocalDate;
 import java.util.List;
 
-public class IAlunoService {
+public interface IAlunoService {
     /**
      * Cria um Aluno e salva no banco de dados.
      * @param form - formulário referente aos dados para criação de um Aluno no banco de dados.
@@ -25,7 +27,7 @@ public class IAlunoService {
      * Retorna todos os Alunos que estão no banco de dados.
      * @return - Uma lista os Alunos que estão salvas no DB.
      */
-    List<Aluno> getAll();
+    List<Aluno> getAll(String dataDeNascimento);
 
     /**
      * Atualiza o Aluno.
@@ -41,4 +43,11 @@ public class IAlunoService {
      * @param id - id do Aluno que será removido.
      */
     void delete(Long id);
+
+    /**
+     *
+     * @param id id do aluno que será recuperada a lista de avaliações
+     * @return uma lista com todas as avaliações do aluno de acordo com o Id
+     */
+    List<AvaliacaoFisica> getAllAvaliacaoFisicaId(Long id);
 }
