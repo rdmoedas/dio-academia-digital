@@ -5,8 +5,8 @@ import me.dio.academia.digital.entity.AvaliacaoFisica;
 import me.dio.academia.digital.entity.form.AlunoForm;
 import me.dio.academia.digital.entity.form.AlunoUpdateForm;
 
-import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 public interface IAlunoService {
     /**
@@ -21,13 +21,20 @@ public interface IAlunoService {
      * @param id - id do Aluno que será exibido.
      * @return - Aluno de acordo com o Id fornecido.
      */
-    Aluno get(Long id);
+    Optional<Aluno> get(Long id);
 
     /**
      * Retorna todos os Alunos que estão no banco de dados.
      * @return - Uma lista os Alunos que estão salvas no DB.
      */
     List<Aluno> getAll();
+
+    /**
+     * Retorna todos os Alunos com data de nascimento informada.
+     * @param dataNeNascimento - data de nascimento.
+     * @return - Uma lista de Alunos com data de nascimento igual a informada.
+     */
+    List<Aluno> getAllWithBirthDay(String dataNeNascimento);
 
     /**
      * Atualiza o Aluno.
@@ -49,5 +56,5 @@ public interface IAlunoService {
      * @param id id do aluno que será recuperada a lista de avaliações
      * @return uma lista com todas as avaliações do aluno de acordo com o Id
      */
-    List<AvaliacaoFisica> getAllAvaliacaoFisicaId(Long id);
+    List<AvaliacaoFisica> getAllAvaliacaoFisicaFromAluno(Long id);
 }
